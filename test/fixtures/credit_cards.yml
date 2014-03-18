@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  cc_number: MyString
+  exp_month: 
+  exp_year: 
+
+two:
+  customer_id: 
+  cc_number: MyString
+  exp_month: 
+  exp_year: 
