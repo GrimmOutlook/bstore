@@ -33,6 +33,9 @@ group :development do
   gem 'hirb'
 end
 
+group :test do
+  gem 'minitest-colorize'
+end
 
 
 
