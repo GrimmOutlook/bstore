@@ -1,0 +1,18 @@
+<h1>Products That Will Change Your Life:</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Created At</th>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <a href="/admin/products/1"><td><%= link_to product.id, admin_product_path(product.id) %></td></a>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.created_at %></td>
+    </tr>
+  <% end %>
+</table>

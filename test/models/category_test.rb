@@ -1,7 +1,15 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_save_success
+    category = Category.new(cat_name: 'test')
+    assert category.save
+  end
+
+  def test_save_failure
+    category = Category.new
+    refute category.save
+    assert_equal ["can't be blank"],
+      category.errors[:cat_name]
+  end
 end

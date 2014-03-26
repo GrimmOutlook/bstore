@@ -17,7 +17,8 @@ class OrderTest < ActiveSupport::TestCase
 
   end
 
-  # test "the truth" do
-  #   assert true
-  # end
+  def order_customer_id_exists
+
+  end
+
 end

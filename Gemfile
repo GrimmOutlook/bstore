@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-
 gem 'faker'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -10,14 +9,11 @@ gem 'jbuilder', '~> 1.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
-
 gem 'sass-rails', '~> 4.0.0'
-
 gem 'turbolinks'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -36,8 +32,6 @@ end
 group :test do
   gem 'minitest-colorize'
 end
-
-
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
