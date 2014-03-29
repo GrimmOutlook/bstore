@@ -1,5 +1,13 @@
 <h1>Products That Will Change Your Life:</h1>
 
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<h3>Create a New Product:
+  <%= link_to  "Create New Product", admin_new_product_path %>
+</h3>
+
 <table>
   <tr>
     <th>ID</th>
@@ -11,8 +19,10 @@
     <tr>
       <a href="/admin/products/1"><td><%= link_to product.id, admin_product_path(product.id) %></td></a>
       <td><%= product.name %></td>
-      <td><%= product.price %></td>
-      <td><%= product.created_at %></td>
+      <td><%= image_tag product.image_url, alt: product.image_url %></td>
+      <td><%= number_to_currency product.price %></td>
+      <td><%= time_ago_in_words product.created_at %> ago</td>
+      <td><%= product.created_at.strftime("Created at %A %B %e, %Y %l:%m %p %Z") %></td>
     </tr>
   <% end %>
 </table>
