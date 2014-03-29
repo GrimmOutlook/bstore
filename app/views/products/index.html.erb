@@ -3,5 +3,6 @@
 <ul>
   <% for product in @products %>
     <li><%= product.name %></li>
+    <li><%= image_tag product.image_url, alt: product.image_url %></li>
   <% end %>
 </ul>
