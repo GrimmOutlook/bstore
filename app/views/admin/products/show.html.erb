@@ -1,7 +1,10 @@
-<table>
 <h1>Product: <%= @product.id %></h1>
 
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
+<table>
   <tr>
 
     <th><%= @product.name %></th>
@@ -9,8 +12,6 @@
     <td><%= image_tag @product.image_url, alt: @product.image_url %></td>
     <td><%= time_ago_in_words @product.created_at %> ago</td>
     <td><%= @product.created_at.strftime("Created at %A %B %e, %Y %l:%m %p %Z") %></td>
-
-
 
   </tr>
 
