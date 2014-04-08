@@ -1,20 +1,11 @@
-<h1>So you want to add a new product to the store?</h1>
+<ol class="breadcrumb">
+  <li><%= link_to "Back to List of Products", admin_products_path %></li>
+  <li class="active">Product: <%= @product.name %></li>
+</ol>
+
+<h1>Use this form to add a new product to the store</h1>
+<h4>The product name and price are required.  <small>An image would be great!</small></h4>
   <br><br>
 
-<% if @product.errors.present? %>
-  <ul>
-    <%= @product.errors.full_messages.each do |err| %>
-     <li><%= err %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_for [:admin, @product] do |f| %>
-  <%= f.label "Enter the name of the new product:" %>
-  <%= f.text_field :name %><br><br>
-  <%= f.label "Enter its price:" %>
-  <%= f.text_field :price %><br><br>
-  <%= f.label "Add the url for the photo of the product:" %>
-  <%= f.text_field :image_url %><br><br>
-  <%= f.submit %>
-<% end %>

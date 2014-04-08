@@ -1,23 +1,30 @@
-<h1>Product: <%= @product.id %></h1>
+<ol class="breadcrumb">
+  <li><%= link_to "Back to List of Products", admin_products_path %></li>
+  <li class="active">Product: <%= @product.name %></li>
+</ol>
 
 <% if flash[:notice].present? %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<table>
-  <tr>
+<h3><%= link_to "Edit Product Information", edit_admin_product_path %></h3>
+<h3><%= link_to "Delete All Product Information from Database", admin_product_path(@product) %></h3>
 
+<table class="table table-bordered table-hover">
+  <tr>
     <th><%= @product.name %></th>
     <td><%= number_to_currency @product.price %></td>
-    <td><%= image_tag @product.image_url, alt: @product.image_url %></td>
+    <td><%= image_tag @product.image_url, width: 400, alt: @product.image_url %></td>
     <td><%= time_ago_in_words @product.created_at %> ago</td>
     <td><%= @product.created_at.strftime("Created at %A %B %e, %Y %l:%m %p %Z") %></td>
-
   </tr>
 
 </table>
 
-<%= link_to "Back to List of Products", admin_products_path %>
+<div class="btn-group">
+  <%= link_to "Back to List of Products", admin_products_path, class: 'btn btn-info' %>
+</div>
+
 
 
 
