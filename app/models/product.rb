@@ -5,5 +5,5 @@ class Product < ActiveRecord::Base
   has_many :categories, :through => :categorizations
 
   validates :name, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :price, presence: true, numericality: { greater_than: 0, allow_blank: true }
 end
