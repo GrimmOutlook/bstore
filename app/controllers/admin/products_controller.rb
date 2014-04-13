@@ -1,9 +1,10 @@
 class Admin::ProductsController < ApplicationController
 
   layout 'admin'
+  before_action :require_login
 
   def index
-    @products = Product.order('name')
+      @products = Product.order('name')
   end
 
   def show
@@ -38,12 +39,26 @@ class Admin::ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-      redirect_to admin_products_path, notice: "Product #{@product.id} was deleted"
+    if @product.destroy
+      flash[:success] = "Product ##{@product.id} was deleted"
+    else
+      flash[:danger] = "Product ##{@product.id} could not be deleted"
+    end
+    redirect_to admin_products_path
   end
 
   protected
   def product_params
-    params.require(:product).permit!
+    params.require(:product).permit(:name, :price)
+  end
+
+  def require_login
+    unless logged_in?
+      redirect_to admin_login_path, danger: 'Please log in to continue'
+    end
+  end
+
+  def logged_in?
+    session[:user_id].present?
   end
 end

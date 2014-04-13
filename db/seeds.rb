@@ -20,10 +20,12 @@ sticker.categories << office_supplies
 
 me = Customer.create!(name: 'Dave', email: 'd@g.com')
 
-me.credit_cards.create(cc_number: '1234123412341234', exp_month: '09', exp_year: '2016')
+#me.credit_cards.create(cc_number: '1234123412341234', exp_month: '09', exp_year: '2016')
 
 # puts "iphone_case categories: #{iphone_case.categories.map{ |c| c.cat_name }}"
 # puts "iphone_case categories: #{iphone_case.categories.map(&:cat_name)}"
+
+User.create!(email: 'mail@paulbarry.com', password: 'secret')
 
 
 

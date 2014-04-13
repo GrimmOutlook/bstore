@@ -6,6 +6,10 @@ Bstore::Application.routes.draw do
     # get '/products/new'  => 'products#new', as: 'new_product'
     # get '/products/:id'  => 'products#show', as: 'product'
     # post '/products'     => 'products#create'
+
+    get  '/login' => 'logins#new', as: 'logins'
+    post '/login' => 'logins#create'
+
   end
 
   resources :subscriptions
