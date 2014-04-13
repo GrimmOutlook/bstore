@@ -3,6 +3,9 @@ ruby "2.1.1"
 
 gem 'bcrypt-ruby', '~> 3.1.5'
 gem 'brakeman', require: false
+
+gem 'bugsnag'
+
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'faker'
@@ -13,6 +16,7 @@ gem 'jbuilder', '~> 1.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'pg'
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'

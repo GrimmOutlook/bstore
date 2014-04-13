@@ -17,4 +17,5 @@
 
 .DS_Store
 .postgresignore
+
 /config/initializers/secret_token.rb
