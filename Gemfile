@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.1.1"
 
-gem 'bcrypt-ruby', '~> 3.1.5'
+gem 'bcrypt', '~> 3.1.7'
 gem 'brakeman', require: false
 
 gem 'bugsnag'
@@ -20,8 +20,8 @@ gem 'puma'
 
 gem 'rack-timeout'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
-gem 'sass-rails', '~> 4.0.0'
+gem 'rails', '4.1.0'
+gem 'sass-rails', '~> 4.0.3'
 gem 'turbolinks'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -35,12 +35,13 @@ end
 
 group :development do
   gem 'hirb'
+  gem 'spring'
 end
 
 group :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'minitest-colorize'
+  # gem 'minitest-colorize'
 end
 
 gem 'rails_12factor', group: :production
