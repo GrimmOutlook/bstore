@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'puma'
 
+gem 'rack-timeout'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 gem 'sass-rails', '~> 4.0.0'
