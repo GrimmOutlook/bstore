@@ -170,12 +170,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bcrypt-ruby (~> 3.1.5)
   brakeman
-=======
   bugsnag
->>>>>>> 43702d6e202dda99961e22bf5d5e4ac38d92301e
   capybara
   coffee-rails (~> 4.0.0)
   faker
