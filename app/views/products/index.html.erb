@@ -1,8 +1,67 @@
-<h1>Look below for cool products:</h1>
+<h2>Look below for cool products!</h2>
 
-<ul>
-  <% for product in @products %>
-    <li><%= product.name %></li>
-    <li><%= image_tag product.image_url, alt: product.image_url %></li>
+<h3>Search:</h3>
+  <div>
+    <%= form_tag({}, method: 'get', role:'form') do %>
+      <%= text_field_tag :search, params[:search] %>
+    <% end %>
+  </div>
+<button type="submit">Search:</button>
+
+<p>
+  <% if logged_in? %>
+    Glad You're Back, <%= current_customer.name %>
+    <%= link_to "Log Out", products_path, class: 'btn btn-info' %>
+  <% else %>
+    <h4>Sign up if you're new here:</h4>
+      <div><%= link_to "Sign Up!", customers_path, class: 'btn btn-success' %></div>
+
+    <h4>If you already have an account, Log In:</h4>
+      <%= form_tag logins_path, class: 'form-horizontal', role: 'form' do %>
+
+        <div class="form-group">
+          <%= label_tag :email, nil, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-4">
+            <%= email_field_tag :email, params[:email], class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :password, nil, class: 'col-sm-2 control-label' %>
+          <div class="col-sm-4">
+            <%= password_field_tag :password, nil, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-4">
+            <%= submit_tag "Log In!", class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+
   <% end %>
-</ul>
+</p>
+
+<h3>Click product number or name for more details:</h3>
+<br>
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Price</th>
+      <th>Category</th>
+    </tr>
+    <% for product in @products %>
+      <tr>
+        <td><%= link_to product.id, product_path(product.id) %></td>
+        <td id="product-<%= product.id %>"><%= link_to product.name, product_path(product.id) %></td>
+        <td><%= image_tag product.image_url, width: 400, alt: product.image_url %></td>
+        <td><%= number_to_currency product.price %></td>
+          <td><%= product.categories.map(&:cat_name).join(", ") %>
+          </td>
+        <td><%= link_to "Purchase", '#TODO-checkout_page', class: 'btn btn-warning'%></td>
+      </tr>
+    <% end %>
+  </table>

@@ -1,0 +1,25 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Back to List of Products", products_path %></li>
+  <li class="active">Product: <%= @product.name %></li>
+</ol>
+
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="btn-group">Purchase this Product:
+  <br>
+  <%= link_to "Purchase", '#TODO-checkout_page', class: 'btn btn-warning' %>
+</div>
+<table class="table table-bordered table-hover">
+  <tr>
+    <th><%= @product.name %></th>
+    <td><%= number_to_currency @product.price %></td>
+    <td><%= image_tag @product.image_url, width: 400, alt: @product.image_url %></td>
+    <td>Here is Where a Description Would Go! - Make New DB Column!!</td>
+  </tr>
+</table>
+
+<div class="btn-group">
+  <%= link_to "Back to List of Products", products_path, class: 'btn btn-info' %>
+</div>

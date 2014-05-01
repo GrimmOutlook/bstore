@@ -1,0 +1,52 @@
+<h2>Looks Like You're New Here - Create a Customer Account!</h2>
+
+<div class="jumbotron">
+
+  <% if @customer.errors.present? %>
+  <div class="panel panel-alert">
+    <ul>
+    <%= @customer.errors.full_messages.each do |err| %>
+     <li><%= err %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%= form_for @customer, url: customer_signup_path, html: { class: 'form-horizontal', role: 'form' } do |f| %>
+
+
+    <div class="form-group">
+      <%= f.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :zip_code, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :zip_code, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-4">
+        <%= submit_tag "Create Account", class: 'btn btn-success' %>
+      </div>
+    </div>
+  <% end %>
+</div>
