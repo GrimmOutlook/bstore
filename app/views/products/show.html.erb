@@ -9,7 +9,12 @@
 
 <div class="btn-group">Purchase this Product:
   <br>
-  <%= link_to "Purchase", '#TODO-checkout_page', class: 'btn btn-warning' %>
+  <p>
+  <%= button_to add_product_to_cart_path(@product), class: 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-shopping-cart"></span>
+    Add To Cart
+  <% end %>
+</p>
 </div>
 <table class="table table-bordered table-hover">
   <tr>

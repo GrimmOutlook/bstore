@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :info, :warning, :danger
 
+  before_action :require_login
+
 protected
   #Can call this from the Views:
   helper_method :logged_in?

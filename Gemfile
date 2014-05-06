@@ -3,7 +3,6 @@ ruby "2.1.1"
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'brakeman', require: false
-
 gem 'bugsnag'
 
 # Use CoffeeScript for .js.coffee assets and views
@@ -16,8 +15,8 @@ gem 'jbuilder', '~> 1.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'pg'
+gem 'pg_search'
 gem 'puma'
-
 gem 'rack-timeout'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'

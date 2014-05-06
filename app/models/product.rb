@@ -19,4 +19,8 @@ class Product < ActiveRecord::Base
   # def self.max_price(price)
   #     where('name ILIKE ?' <= "%#{price}%")
   # end
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end

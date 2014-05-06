@@ -1,11 +1,22 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
-  belongs_to :order
   has_many :line_items
   has_many :products, :through => :line_items
 
   validates :customer_id, :credit_card_id, presence: true
   validate :credit_card_belongs_to_customer
+
+
+
+
+
+
+
+
+
+
+
+
 
   def credit_card_belongs_to_customer
     if customer_id && credit_card_id

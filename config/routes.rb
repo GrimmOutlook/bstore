@@ -2,14 +2,9 @@ Bstore::Application.routes.draw do
 
   namespace :admin do
     resources :products
-    # get '/products'      => 'products#index', as: 'products'
-    # get '/products/new'  => 'products#new', as: 'new_product'
-    # get '/products/:id'  => 'products#show', as: 'product'
-    # post '/products'     => 'products#create'
 
     get  '/login' => 'logins#new', as: 'logins'
     post '/login' => 'logins#create'
-
   end
 
   resources :subscriptions
@@ -25,6 +20,12 @@ Bstore::Application.routes.draw do
   get  '/login' => 'logins#new', as: 'logins'
   post '/login' => 'logins#create'
   delete '/login' => 'logins#destroy'
+
+  post '/products/:product_id/add_to_cart' => 'carts#create',
+    as: 'add_product_to_cart'
+
+  resource :cart
+  resources :orders
 
   root :to => 'products#index'
   # The priority is based upon order of creation: first created -> highest priority.
